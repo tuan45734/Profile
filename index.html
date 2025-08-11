@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoàng Văn Tuấn | Frontend Developer (Vue/Nuxt Specialist)</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-date {
+            color: var(--secondary);
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-item {
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .responsibilities {
+            margin-left: 1rem;
+            padding-left: 1rem;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .responsibilities li:before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 1rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s;
+        }
+
+        .github-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 8px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        .skill-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #eee;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-title {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            .project-date {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HOÀNG VĂN TUẤN</h1>
+        <div class="tagline">Frontend Developer | Vue.js & Nuxt.js Specialist</div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📞</span>
+                <span>0335 602 115</span>
+            </div>
+            <div class="contact-item">
+                <span>✉️</span>
+                <span>hoangtuanhvt2004@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>🏠</span>
+                <span>Minh Khai, Bắc Từ Liêm, Hà Nội</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>ABOUT ME</h2>
+        <div class="card">
+            <p>A passionate Frontend Developer specializing in Vue.js and Nuxt.js with experience in building modern web applications. Skilled in creating responsive user interfaces with Tailwind CSS and integrating with backend APIs. Strong advocate for clean code and performance optimization. Graduated from FPT Polytechnic with a GPA of 3.55/4. Continuously learning and adapting to new technologies in the fast-evolving web development landscape.</p>
+        </div>
+    </section>
+
+    <section id="work-experience">
+        <h2>WORK EXPERIENCE</h2>
+        
+        <div class="card">
+            <div class="project-title">
+                <span>Frontend Developer Intern | Xepo Technology JSC</span>
+                <span class="project-date">00/2025 - 00/2025</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-item">Vue 3</span>
+                <span class="tech-item">Nuxt 3</span>
+                <span class="tech-item">Tailwind CSS</span>
+                <span class="tech-item">RESTful APIs</span>
+                <span class="tech-item">Git</span>
+            </div>
+            <ul class="responsibilities">
+                <li>Developed user interfaces for <strong>Digital Brand Platform</strong> using Vue 3 and Nuxt 3</li>
+                <li>Optimized web performance with Nuxt's SSR and lazy-loading techniques</li>
+                <li>Built reusable components with Composition API and maintained UI consistency with Tailwind CSS</li>
+                <li>Collaborated with backend team for API integration and data binding</li>
+                <li>Participated in code reviews and followed Agile/Scrum methodologies</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="project-experience">
+        <h2>PROJECT EXPERIENCE</h2>
+
+        <div class="card">
+            <div class="project-title">
+                <span>E-commerce Beauty Products (Sac Dep 24h)</span>
+                <span class="project-date">08/2025 - Present</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-item">Vue 3</span>
+                <span class="tech-item">Nuxt 3</span>
+                <span class="tech-item">Tailwind CSS</span>
+                <span class="tech-item">RESTful APIs</span>
+                <span class="tech-item">Vite</span>
+            </div>
+            <ul class="responsibilities">
+                <li>Developed responsive user interfaces with Vue 3 and Tailwind CSS</li>
+                <li>Implemented shopping cart and checkout functionality</li>
+                <li>Optimized mobile experience with responsive design principles</li>
+                <li>Integrated with backend APIs for product and order management</li>
+                <li>Improved page load performance with code splitting and lazy loading</li>
+            </ul>
+            <a href="https://github.com/thiennvt0212/Sac_dep_24h_Project" class="github-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17.001 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.629 18.545 7.85 18.421 8.153C19.191 8.993 19.656 10.063 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z" fill="currentColor"/>
+                </svg>
+                View on GitHub
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="project-title">
+                <span>Sneaker E-commerce Website (H2TL)</span>
+                <span class="project-date">01/2025 - 05/2025</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-item">React</span>
+                <span class="tech-item">Spring Boot</span>
+                <span class="tech-item">SQL Server</span>
+                <span class="tech-item">VNPay</span>
+                <span class="tech-item">Viettel Post API</span>
+            </div>
+            <ul class="responsibilities">
+                <li>Developed e-commerce platform with both online and in-store sales capabilities</li>
+                <li>Integrated payment gateways (VNPay) and shipping provider (Viettel Post)</li>
+                <li>Created comprehensive dashboard with data visualization for sales analytics</li>
+                <li>Implemented inventory management and order processing systems</li>
+            </ul>
+            <a href="https://github.com/thanh9256ub/data" class="github-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17.001 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.629 18.545 7.85 18.421 8.153C19.191 8.993 19.656 10.063 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z" fill="currentColor"/>
+                </svg>
+                View on GitHub
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="project-title">
+                <span>Retail Store Management System (XSTORE)</span>
+                <span class="project-date">03/2024 - 04/2024</span>
+            </div>
+            <div class="tech-stack">
+                <span class="tech-item">Java</span>
+                <span class="tech-item">Java Swing</span>
+                <span class="tech-item">SQL Server</span>
+            </div>
+            <ul class="responsibilities">
+                <li>Developed backend functionality for sales, inventory, and customer management</li>
+                <li>Designed user-friendly point-of-sale interface using Java Swing</li>
+                <li>Implemented CRUD operations and database management with SQL Server</li>
+            </ul>
+            <a href="https://github.com/longthanh21/CuaHangXstore" class="github-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.374 0 0 5.373 0 12C0 17.302 3.438 21.8 8.207 23.387C8.806 23.498 9 23.126 9 22.81V20.576C5.662 21.302 4.967 19.16 4.967 19.16C4.421 17.773 3.634 17.404 3.634 17.404C2.545 16.659 3.717 16.675 3.717 16.675C4.922 16.759 5.556 17.912 5.556 17.912C6.626 19.746 8.363 19.216 9.048 18.909C9.155 18.134 9.466 17.604 9.81 17.305C7.145 17.001 4.343 15.971 4.343 11.374C4.343 10.063 4.812 8.993 5.579 8.153C5.455 7.85 5.044 6.629 5.696 4.977C5.696 4.977 6.704 4.655 8.997 6.207C9.954 5.941 10.98 5.808 12 5.803C13.02 5.808 14.047 5.941 15.006 6.207C17.297 4.655 18.303 4.977 18.303 4.977C18.956 6.629 18.545 7.85 18.421 8.153C19.191 8.993 19.656 10.063 19.656 11.374C19.656 15.983 16.849 16.998 14.177 17.295C14.607 17.667 15 18.397 15 19.517V22.81C15 23.129 15.192 23.504 15.801 23.386C20.566 21.797 24 17.3 24 12C24 5.373 18.627 0 12 0Z" fill="currentColor"/>
+                </svg>
+                View on GitHub
+            </a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>TECHNICAL SKILLS</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <ul class="skill-list">
+                    <li>Vue 3 (Composition API, Pinia)</li>
+                    <li>Nuxt 3 (SSR, ISG, Routing)</li>
+                    <li>Tailwind CSS</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>TypeScript</li>
+                    <li>HTML5/Semantic HTML</li>
+                    <li>CSS3/Animations</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Libraries</h3>
+                <ul class="skill-list">
+                    <li>Vite</li>
+                    <li>Axios</li>
+                    <li>Vue DevTools</li>
+                    <li>Git/GitHub</li>
+                    <li>VS Code</li>
+                    <li>Figma</li>
+                    <li>Jest/Vitest</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Backend & Others</h3>
+                <ul class="skill-list">
+                    <li>RESTful APIs</li>
+                    <li>Java (Core, Spring Boot)</li>
+                    <li>SQL Server</li>
+                    <li>Agile/Scrum</li>
+                    <li>Responsive Design</li>
+                    <li>Performance Optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>EDUCATION</h2>
+        <div class="card">
+            <div class="project-title">
+                <span>FPT Polytechnic Collage</span>
+                <span class="project-date">12/2022 - 06/2025</span>
+            </div>
+            <p><strong>Software Development</strong></p>
+            <p>GPA: 3.55/4</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Hoàng Văn Tuấn | Last Updated: June 2025</p>
+    </footer>
+</body>
+</html>
